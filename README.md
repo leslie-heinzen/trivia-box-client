@@ -10,7 +10,7 @@ A real-time trivia application for fun and profit. It works like this:
 This repository is for the client code.
 
 ## Run locally
-1. Start the server:
+1. First, start the server: https://github.com/leslie-heinzen/trivia-box-server
 2. From the root of the project, run the following:
 
 ```
