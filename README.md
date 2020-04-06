@@ -1,5 +1,6 @@
-## Trivia Box
+🚧 Work in progress 🚧
 
+## Trivia Box
 A real-time trivia application for fun and profit. It works like this:
 
 - Open the app on a big ol' TV or other monitor of your choosing, and click "start a new game."
