@@ -9,7 +9,7 @@ interface Props {
   onClick: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Answer: React.FC<Props> = ({ className, answerEntity, selectedAnswer, onClick, disabled }) => {
+export const Answer: React.FC<Props> = ({ className, answerEntity, selectedAnswer, onClick, disabled }) => {
   const { answer, gameAnswerId } = answerEntity;
   return <label className={className} htmlFor={gameAnswerId.toString()}>
     <input type="radio" 
@@ -20,6 +20,4 @@ const Answer: React.FC<Props> = ({ className, answerEntity, selectedAnswer, onCl
       disabled={disabled}
       hidden
       />{answer}</label>
-}
-
-export default Answer;
+};

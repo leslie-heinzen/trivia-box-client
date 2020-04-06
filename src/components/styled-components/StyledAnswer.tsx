@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Answer from '../Answer';
+import { Answer } from '../Answer';
 
 export const StyledAnswer = styled(Answer)`
   margin-bottom: 15px;
@@ -14,4 +14,4 @@ export const StyledAnswer = styled(Answer)`
         : 'gray'
       : 'mediumpurple'};
   cursor: pointer;
-`
+`;

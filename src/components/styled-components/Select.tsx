@@ -12,4 +12,4 @@ export const Select = styled.select<Props>`
   border-width: 2px;
   background: greenyellow;
   padding: 5px;
-`
+`;

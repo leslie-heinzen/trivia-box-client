@@ -11,7 +11,7 @@ import App from './App';
 ReactDOM.render(
   <React.StrictMode>
     <Router routes={routes}>
-      <Suspense fallback={null}>        
+      <Suspense fallback={null}>
         <App />
       </Suspense>
     </Router>

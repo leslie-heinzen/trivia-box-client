@@ -29,11 +29,9 @@ const Host: React.FC<Props> = ({ roomCode }) => {
     },
     listeners: ["sendQuestion", "sendPlayers", "sendGameState", "sendWinnerMessage", "sendPlayersUpdate"]
   });
-
   const startGame = () => {
     hubClient.send("startGame", room?.roomCode);
-  }
-
+  };
   const correctAnswer = () => currentQuestion?.gameAnswers.find(ga => ga.correct);
 
   return <>
@@ -58,6 +56,6 @@ const Host: React.FC<Props> = ({ roomCode }) => {
       </Container>
     </RoomLayout>
   </>
-}
+};
 
 export default Host;

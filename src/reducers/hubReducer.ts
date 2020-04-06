@@ -1,6 +1,6 @@
-import { State } from "../types";
+import { State, HubListener } from "../types";
 
-export function hubReducer(state: State, [type, data]: any): State {
+export function hubReducer(state: State, [type, data]: [HubListener, any]): State {
   switch (type) {
     case "sendQuestion":
       return { ...state, currentQuestion: data };
@@ -12,6 +12,7 @@ export function hubReducer(state: State, [type, data]: any): State {
       return { ...state, winnerMessage: data };
     case "sendPlayersUpdate":
       return { ...state, playerUpdateMessage: data };
+    default:
+      return state;
   }
-  return state;
 }

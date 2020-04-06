@@ -19,7 +19,7 @@ interface Props {
 }
 
 const Player: React.FC<Props> = ({ roomCode, playerName }) => {
-  const { gameState, currentQuestion, players } = useHubClient({ 
+  const { gameState, currentQuestion, players } = useHubClient({
     startAction: {
       methodName: "joinRoomAsPlayer",
       args: [playerName, roomCode]
@@ -39,21 +39,21 @@ const Player: React.FC<Props> = ({ roomCode, playerName }) => {
   return <>
     <RoomLayout gameState={gameState}>
       <Container>
-          {(function() {
-            switch(gameState) {
-              case GameState.Active: 
-                return <PlayerActive answers={currentQuestion?.gameAnswers} 
-                  selectedAnswer={selectedAnswer || ''}
-                  onClick={submitAnswer} />
-              case GameState.BetweenRounds: 
-                return <PlayerPaused players={players} /> 
-              case GameState.Ended: 
-                return <PlayerEnded players={players} /> 
-              case GameState.Waiting:
-              default: 
-                return <PlayerWaiting />
-            }
-          })()}
+        {(function () {
+          switch (gameState) {
+            case GameState.Active:
+              return <PlayerActive answers={currentQuestion?.gameAnswers}
+                selectedAnswer={selectedAnswer || ''}
+                onClick={submitAnswer} />
+            case GameState.BetweenRounds:
+              return <PlayerPaused players={players} />
+            case GameState.Ended:
+              return <PlayerEnded players={players} />
+            case GameState.Waiting:
+            default:
+              return <PlayerWaiting />
+          }
+        })()}
       </Container>
     </RoomLayout>
   </>

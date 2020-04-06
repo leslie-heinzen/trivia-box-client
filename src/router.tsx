@@ -5,7 +5,7 @@ import Lobby from "./views/Lobby";
 import RoomSetup from "./views/RoomSetup";
 import { mount, route } from 'navi'
 
-const routes = 
+const routes =
   mount({
     '/': route({
       title: 'Lobby',
@@ -16,13 +16,13 @@ const routes =
       view: <RoomSetup />,
     }),
     '/:roomCode/host': route(req => ({
-        title: 'Host',
-        view: <Host roomCode={req.params.roomCode}/>,
-      })),
+      title: 'Host',
+      view: <Host roomCode={req.params.roomCode} />,
+    })),
     '/:roomCode/player/:name': route(req => ({
-        title: 'Player',
-        view: <Player roomCode={req.params.roomCode} playerName={req.params.name} />,
-      })),
+      title: 'Player',
+      view: <Player roomCode={req.params.roomCode} playerName={req.params.name} />,
+    })),
   });
 
 export default routes;

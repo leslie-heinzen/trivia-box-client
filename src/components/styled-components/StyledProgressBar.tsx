@@ -14,7 +14,4 @@ export const StyledProgressBar = styled.div<Props>`
     height: 35px;
     transition: width .25s ease-out;
   }
-`
-
-
-
+`;

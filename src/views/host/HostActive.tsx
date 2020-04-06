@@ -22,7 +22,7 @@ const HostActive: React.FC<Props> = ({ currentQuestion, roundTime }) => {
 
   return <>
     <JumboText>{currentQuestion?.question}</JumboText>
-    <StyledProgressBar percentage={((count * 1000) / (roundTime-1)) * 100}>
+    <StyledProgressBar percentage={((count * 1000) / (roundTime - 1)) * 100}>
       <div></div>
     </StyledProgressBar>
   </>

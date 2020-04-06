@@ -8,13 +8,11 @@ interface Props {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: React.FC<Props> = ({ className, id, value, labelText, onChange }) => {
+export const Input: React.FC<Props> = ({ className, id, value, labelText, onChange }) => {
   return <>
     <div className={className}>
       <label htmlFor={id}>{labelText}</label>
       <input id={id} value={value} onChange={onChange}></input>
     </div>
   </>
-}
-
-export default Input;
+};

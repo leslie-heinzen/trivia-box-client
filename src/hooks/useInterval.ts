@@ -12,9 +12,10 @@ export function useInterval(callback: (...args: any[]) => void, delay: number) {
       savedCallback.current();
     }
 
-    if (delay !== null) {
-      let id = setInterval(tick, delay);
-      return () => clearInterval(id);
-    }
+    const id = setInterval(tick, delay);
+
+    return function () {
+      return clearInterval(id);
+    };
   }, [delay]);
 }

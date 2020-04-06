@@ -10,7 +10,7 @@ interface Props {
   onClick: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const AnswerGrid: React.FC<Props> = ({ className, answers, selectedAnswer, onClick, disabled }) => {
+export const AnswerGrid: React.FC<Props> = ({ className, answers, selectedAnswer, onClick, disabled }) => {
   return <div className={className}>    
     {answers?.map(a => {
       return <StyledAnswer
@@ -21,6 +21,4 @@ const AnswerGrid: React.FC<Props> = ({ className, answers, selectedAnswer, onCli
         disabled={disabled} />        
     })}
   </div>
-}
-
-export default AnswerGrid;
+};

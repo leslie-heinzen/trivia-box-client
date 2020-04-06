@@ -10,4 +10,4 @@ export const Button = styled.button`
   color: black;
   border: 2px solid black;
   font-size: inherit;
-`
+`;

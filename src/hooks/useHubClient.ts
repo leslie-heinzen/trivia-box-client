@@ -21,15 +21,14 @@ export function useHubClient({ startAction, listeners } : HubClientSpec): State 
       hubClient.stop();
     };
 
-    function setListeners(clientMethod: HubMethod, listeners: HubListener[]): void {
+    function setListeners(clientMethod: HubMethod, listeners: HubListener[]) {
       for (const listener of listeners) {
         hubClient[clientMethod](listener, (res) => {
-            // dispatch
-            dispatch([listener, res]);
+          dispatch([listener, res]);
         });
       }
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [startAction, listeners]);
 
   return state;
 }

@@ -3,13 +3,13 @@ import { apiClient } from '../clients/api-client';
 import { RoomEntity } from '../types';
 
 export function useRoom(roomCode: string) {
-  const [room, setRoom] = useState<RoomEntity | null>(null);
+  const [room, setRoom] = useState<RoomEntity>();
 
   useEffect(() => {
     let isMounted = true;
     apiClient.getRoom(roomCode)
       .then(r => {
-        if (isMounted){
+        if (isMounted) {
           setRoom(r.room);
         }
       });

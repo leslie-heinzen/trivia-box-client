@@ -20,7 +20,7 @@ const RoomSetup: React.FC = () => {
     const newGameType = e.target.value;
     return setGameId(newGameType);
   }
-  
+
   const startGame = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const game = await apiClient.addRoom({ gameId: gameType });

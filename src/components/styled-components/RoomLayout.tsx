@@ -26,4 +26,4 @@ export const RoomLayout = styled.div<Props>`
   h1 {
     margin: 0;
   }
-`
+`;

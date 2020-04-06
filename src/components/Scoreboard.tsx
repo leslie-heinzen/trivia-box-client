@@ -1,8 +1,13 @@
 import React from "react";
 import { PlayerEntity } from "../types";
 
-const Scoreboard: React.FC<{ className?: string, players: PlayerEntity[]|undefined}> = ({ className, players }) => {
-  const sorted = players ? players?.sort((a, b) => b.score - a.score) : [];
+interface Props {
+  className?: string
+  players: PlayerEntity[] | undefined
+}
+
+const Scoreboard: React.FC<Props> = ({ className, players }) => {
+  const sorted = players?.sort((a, b) => b.score - a.score);
 
   return <>
     <div className={className}>

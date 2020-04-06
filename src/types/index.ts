@@ -1,3 +1,23 @@
+// State
+export interface State {
+  gameState: GameState
+  currentQuestion: GameQuestionEntity
+  players: PlayerEntity[]
+  playerUpdateMessage: string
+  winnerMessage: string
+}
+
+// Hub Client
+export type HubInvokeAction = "joinRoomAsHost" | "joinRoomAsPlayer";
+export type HubMethod = "on" | "off";
+export type HubListener =
+  "sendQuestion" | "sendPlayers" | "sendGameState" | "sendWinnerMessage" | "sendPlayersUpdate";
+export interface HubClientSpec {
+  startAction: { methodName: HubInvokeAction, args: string[] }
+  listeners: HubListener[]
+}
+
+// API
 export declare type AddRoomQuery = {
   gameId: string
 }
@@ -10,6 +30,7 @@ export declare type GetRoomResponse = {
   room: RoomEntity
 }
 
+// Models
 export declare type RoomEntity = {
   roomId?: number
   roomCode?: string
@@ -63,25 +84,4 @@ export enum GameType {
   Sports = "Sports",
   Science = "Science",
   Music = "Music"
-}
-
-// STATE
-export interface State {
-  gameState: GameState
-  currentQuestion: GameQuestionEntity
-  players: PlayerEntity[]
-  playerUpdateMessage: string
-  winnerMessage: string
-  selectedAnswer?: string
-}
-
-// HUB CLIENT
-export type HubInvokeAction = "joinRoomAsHost" | "joinRoomAsPlayer";
-export type HubMethod = "on" | "off";
-export type HubListener = 
-  "sendQuestion" | "sendPlayers" | "sendGameState" | "sendWinnerMessage" | "sendPlayersUpdate";
-
-export interface HubClientSpec {
-  startAction: { methodName: HubInvokeAction, args: string[] }
-  listeners: HubListener[]
 }

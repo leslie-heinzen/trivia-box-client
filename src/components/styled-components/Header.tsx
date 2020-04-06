@@ -11,4 +11,4 @@ export const Header = styled.div`
     text-decoration: none;
     color: white;
   }
-`
+`;
