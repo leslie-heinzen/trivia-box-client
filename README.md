@@ -16,5 +16,5 @@ This repository is for the client code.
 
 ```
 yarn install
-npm start
+yarn start
 ```
