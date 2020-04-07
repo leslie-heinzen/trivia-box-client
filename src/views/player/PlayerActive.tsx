@@ -1,17 +1,11 @@
 
 import React from "react";
 // Types
-import { GameAnswerEntity } from "../../types";
+import { PlayerActiveProps } from "../../types/props";
 // Components
 import { StyledAnswerGrid } from "../../components/styled-components/StyledAnswerGrid";
 
-interface Props {
-  answers: GameAnswerEntity[] | undefined
-  selectedAnswer: string
-  onClick: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
-
-const PlayerActive: React.FC<Props> = ({ answers, selectedAnswer, onClick }) => {
+const PlayerActive: React.FC<PlayerActiveProps> = ({ answers, selectedAnswer, onClick }) => {
   return <>
     <p>choose wisely.</p>
     <StyledAnswerGrid answers={answers}

@@ -5,10 +5,11 @@ interface Props {
 }
 
 export const StyledProgressBar = styled.div<Props>`
-  width: 100%;
+  width: 100%;  
   height: 35px;
   background: black;
   > div {
+    max-width: 100%;
     background: greenyellow;
     width: ${({ percentage }) => percentage + '%'};
     height: 35px;

@@ -1,16 +1,8 @@
 import React from "react";
-import { GameAnswerEntity } from "../types";
 import { StyledAnswer } from "./styled-components/StyledAnswer";
+import { AnswerGridProps } from "../types/props";
 
-interface Props {
-  className?: string,
-  answers: GameAnswerEntity[] | undefined,
-  selectedAnswer: string,
-  disabled: boolean
-  onClick: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
-
-export const AnswerGrid: React.FC<Props> = ({ className, answers, selectedAnswer, onClick, disabled }) => {
+export const AnswerGrid: React.FC<AnswerGridProps> = ({ className, answers, selectedAnswer, onClick, disabled }) => {
   return <div className={className}>    
     {answers?.map(a => {
       return <StyledAnswer

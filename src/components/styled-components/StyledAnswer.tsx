@@ -9,7 +9,7 @@ export const StyledAnswer = styled(Answer)`
   font-weight: bold;
   background: ${({ selectedAnswer, answerEntity, disabled }) => 
     disabled 
-      ? selectedAnswer === answerEntity.answer
+      ? selectedAnswer === answerEntity?.answer
         ? 'greenyellow' 
         : 'gray'
       : 'mediumpurple'};

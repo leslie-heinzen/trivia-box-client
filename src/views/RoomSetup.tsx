@@ -4,7 +4,7 @@ import { apiClient } from "../clients/api-client";
 // Hooks
 import { useNavigation } from 'react-navi'
 // Types
-import { GameType, GameState } from "../types";
+import { GameType, GameState } from "../types/models";
 // Components
 import { Button } from "../components/styled-components/Button";
 import { Container } from "../components/styled-components/Container";

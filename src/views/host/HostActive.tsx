@@ -3,18 +3,13 @@ import React, { useState } from "react";
 // Hooks
 import { useInterval } from "../../hooks/useInterval";
 // Types
-import { GameQuestionEntity } from "../../types";
+import { HostActiveProps } from "../../types/props";
 //Components
 import { JumboText } from "../../components/styled-components/JumboText";
 import { StyledProgressBar } from "../../components/styled-components/StyledProgressBar";
 
-interface Props {
-  currentQuestion: GameQuestionEntity | undefined
-  roundTime: number;
-}
-
-const HostActive: React.FC<Props> = ({ currentQuestion, roundTime }) => {
-  const [count, setCount] = useState(1);
+const HostActive: React.FC<HostActiveProps> = ({ currentQuestion, roundTime }) => {
+  const [count, setCount] = useState(0);
 
   useInterval(() => {
     setCount(count + 1);
@@ -22,7 +17,7 @@ const HostActive: React.FC<Props> = ({ currentQuestion, roundTime }) => {
 
   return <>
     <JumboText>{currentQuestion?.question}</JumboText>
-    <StyledProgressBar percentage={((count * 1000) / (roundTime - 1)) * 100}>
+    <StyledProgressBar percentage={((count * 1000) / (roundTime - 1000)) * 100}>
       <div></div>
     </StyledProgressBar>
   </>

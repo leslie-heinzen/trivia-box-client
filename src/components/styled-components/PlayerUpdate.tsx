@@ -11,8 +11,9 @@ export const PlayerUpdate = styled.p<Props>`
   bottom: 2em;
   left: -20em;
   padding-left: 2em;
-  animation: 4s ease ${props => props.message ? playerIn : ''};
-`
+  animation: 4s ease ${({ message }) => message ? playerIn : ''};
+`;
+
 const playerIn = keyframes`
   0% { left: -20em; }
   25% { left: 0; }

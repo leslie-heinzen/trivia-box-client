@@ -5,7 +5,8 @@ import { hubClient } from "../../clients/hub-client";
 import { useHubClient } from "../../hooks/useHubClient";
 import { useRoom } from "../../hooks/useRoom";
 // Types
-import { GameState } from "../../types";
+import { GameState } from "../../types/models";
+import { HostProps } from "../../types/props";
 // Components
 import { Container } from "../../components/styled-components/Container";
 import { PlayerUpdate } from "../../components/styled-components/PlayerUpdate";
@@ -16,11 +17,7 @@ import HostEnded from "./HostEnded";
 import HostPaused from "./HostPaused";
 import HostActive from "./HostActive";
 
-interface Props {
-  roomCode: string
-}
-
-const Host: React.FC<Props> = ({ roomCode }) => {
+const Host: React.FC<HostProps> = ({ roomCode }) => {
   const room = useRoom(roomCode);
   const { gameState, currentQuestion, players, playerUpdateMessage, winnerMessage } = useHubClient({ 
     startAction: {

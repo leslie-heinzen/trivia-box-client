@@ -1,15 +1,7 @@
 import React from "react";
-import { GameAnswerEntity } from "../types";
+import { AnswerProps } from "../types/props";
 
-interface Props {
-  className?: string,
-  answerEntity: GameAnswerEntity,
-  selectedAnswer: string,
-  disabled: boolean
-  onClick: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
-
-export const Answer: React.FC<Props> = ({ className, answerEntity, selectedAnswer, onClick, disabled }) => {
+export const Answer: React.FC<AnswerProps> = ({ className, answerEntity, selectedAnswer, onClick, disabled }) => {
   const { answer, gameAnswerId } = answerEntity;
   return <label className={className} htmlFor={gameAnswerId.toString()}>
     <input type="radio" 

@@ -4,7 +4,8 @@ import { hubClient } from "../../clients/hub-client";
 // Hooks
 import { useHubClient } from "../../hooks/useHubClient";
 // Types
-import { GameState } from "../../types";
+import { GameState } from "../../types/models";
+import { PlayerProps } from "../../types/props";
 // Components
 import { Container } from "../../components/styled-components/Container";
 import { RoomLayout } from "../../components/styled-components/RoomLayout";
@@ -13,12 +14,7 @@ import PlayerPaused from "./PlayerPaused";
 import PlayerEnded from "./PlayerEnded";
 import PlayerWaiting from "./PlayerWaiting";
 
-interface Props {
-  playerName: string,
-  roomCode: string
-}
-
-const Player: React.FC<Props> = ({ roomCode, playerName }) => {
+const Player: React.FC<PlayerProps> = ({ roomCode, playerName }) => {
   const { gameState, currentQuestion, players } = useHubClient({
     startAction: {
       methodName: "joinRoomAsPlayer",

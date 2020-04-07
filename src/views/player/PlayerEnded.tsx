@@ -1,17 +1,13 @@
 
 import React from "react";
 // Types
-import { PlayerEntity } from "../../types";
+import { PlayerEndedProps } from "../../types/props";
 // Components
 import { Link } from "react-navi";
 import { StyledScoreboard } from "../../components/styled-components/StyledScoreboard";
 import { JumboText } from "../../components/styled-components/JumboText";
 
-interface Props {
-  players: PlayerEntity[] | undefined
-}
-
-const PlayerEnded: React.FC<Props> = ({ players }) => {
+const PlayerEnded: React.FC<PlayerEndedProps> = ({ players }) => {
   return <>
     <JumboText>game over.</JumboText>
     <StyledScoreboard players={players} />

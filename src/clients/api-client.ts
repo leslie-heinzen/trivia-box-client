@@ -1,13 +1,13 @@
 import 'isomorphic-fetch';
 import { Post, Pretend, IPretendRequest, Get } from 'pretend';
-import { AddRoomQuery, AddRoomResponse, GetRoomResponse } from '../types';
+import { AddRoomQuery, AddRoomResponse, GetRoomResponse } from '../types/api';
 
 class ApiClient {
   @Post('/room')
-  public async addRoom(addRoomQuery?: AddRoomQuery) { return {} as AddRoomResponse }
+  public async addRoom(addRoomQuery?: AddRoomQuery) { return {} as AddRoomResponse; } 
 
   @Get('/room/{roomCode}')
-  public async getRoom(roomCode: string) { return {} as GetRoomResponse }
+  public async getRoom(roomCode: string) { return {} as GetRoomResponse; } 
 }
 
 export const apiClient = Pretend

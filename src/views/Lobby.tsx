@@ -2,7 +2,7 @@ import React, { useState, FormEvent } from "react";
 // Hooks
 import { useNavigation } from "react-navi";
 // Types
-import { GameState } from "../types";
+import { GameState } from "../types/models";
 // Components
 import { Button } from "../components/styled-components/Button";
 import { Container } from "../components/styled-components/Container";

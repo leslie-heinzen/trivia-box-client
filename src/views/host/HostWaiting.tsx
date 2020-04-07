@@ -1,15 +1,12 @@
 
 import React from "react";
-import { GameType } from "../../types";
+// Types
+import { HostWaitingProps } from "../../types/props";
+// Components
 import { Button } from "../../components/styled-components/Button";
 import { JumboText } from "../../components/styled-components/JumboText";
 
-interface Props {
-  gameType?: GameType
-  onClick: () => void
-}
-
-const HostWaiting: React.FC<Props> = ({ gameType, onClick }) => {
+const HostWaiting: React.FC<HostWaitingProps> = ({ gameType, onClick }) => {
   return <>
     <JumboText>{gameType && `${gameType} trivia.`.toUpperCase()}</JumboText>
     <p>let's get this show on the road.</p>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { apiClient } from '../clients/api-client';
-import { RoomEntity } from '../types';
+import { RoomEntity } from '../types/models';
 
 export function useRoom(roomCode: string) {
   const [room, setRoom] = useState<RoomEntity>();

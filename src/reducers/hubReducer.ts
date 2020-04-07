@@ -1,4 +1,5 @@
-import { State, HubListener } from "../types";
+import { State } from "../types/room-state";
+import { HubListener } from "../types/hub";
 
 export function hubReducer(state: State, [type, data]: [HubListener, any]): State {
   switch (type) {

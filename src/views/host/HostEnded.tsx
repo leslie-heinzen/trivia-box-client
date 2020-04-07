@@ -1,17 +1,12 @@
 import React from "react";
 // Types
-import { PlayerEntity } from "../../types";
+import { HostEndedProps } from "../../types/props";
 // Components
 import { Link } from "react-navi";
 import { StyledScoreboard } from "../../components/styled-components/StyledScoreboard";
 import { JumboText } from "../../components/styled-components/JumboText";
 
-interface Props {
-  winnerMessage: string
-  players: PlayerEntity[] | undefined
-}
-
-const HostEnded: React.FC<Props> = ({ winnerMessage, players }) => {
+const HostEnded: React.FC<HostEndedProps> = ({ winnerMessage, players }) => {
   return <>
     <JumboText>game over.</JumboText>
     <p>{winnerMessage}</p>

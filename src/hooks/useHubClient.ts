@@ -1,12 +1,17 @@
 import { useEffect, useReducer } from 'react';
 import { hubClient } from '../clients/hub-client';
 import { hubReducer } from '../reducers/hubReducer';
-import { State, HubClientSpec, HubMethod, HubListener, GameState } from '../types';
+// Types
+import { GameState } from '../types/models';
+import { State } from '../types/room-state';
+import { HubClientSpec, HubMethod, HubListener } from '../types/hub';
 
 export function useHubClient({ startAction, listeners } : HubClientSpec): State {
   const [state, dispatch] = useReducer(hubReducer, { gameState: GameState.Waiting } as State);
 
   useEffect(() => {
+    let isLive = true;
+
     hubClient.start()
       .then(() => {
         hubClient.invoke(startAction.methodName, ...startAction.args);
@@ -17,6 +22,7 @@ export function useHubClient({ startAction, listeners } : HubClientSpec): State 
 
     return function cleanup() {
       // detach hub listeners
+      isLive = false;
       setListeners("off", listeners);
       hubClient.stop();
     };
@@ -24,11 +30,21 @@ export function useHubClient({ startAction, listeners } : HubClientSpec): State 
     function setListeners(clientMethod: HubMethod, listeners: HubListener[]) {
       for (const listener of listeners) {
         hubClient[clientMethod](listener, (res) => {
-          dispatch([listener, res]);
+          if (isLive) {            
+            dispatch([listener, res]);
+
+            if (listener === "sendPlayersUpdate") {
+              setTimeout(function() { 
+                if (isLive) {
+                  dispatch(["sendPlayersUpdate", ""])
+                }
+              }, 4000);
+            }
+          }
         });
       }
     }
-  }, [startAction, listeners]);
+  }, []); // eslint-disable-next-line
 
   return state;
 }

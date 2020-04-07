@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GameState } from "../../types";
+import { GameState } from "../../types/models";
 
 interface Props {
   gameState: GameState | undefined
